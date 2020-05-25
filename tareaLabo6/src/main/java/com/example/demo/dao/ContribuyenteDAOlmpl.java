@@ -8,11 +8,13 @@ import javax.persistence.Query;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.domain.Contribuyente;
 
 @Repository
 public class ContribuyenteDAOlmpl implements ContribuyenteDAO {
+	
 	@PersistenceContext(unitName="demo")
 	private EntityManager entityManager;
 
@@ -21,8 +23,8 @@ public class ContribuyenteDAOlmpl implements ContribuyenteDAO {
 		StringBuffer sb = new StringBuffer();
 		sb.append("select * from public.contribuyente");
 		
-		Query query = entityManager.createNativeQuery(sb.toString(),Contribuyente.class);
-		List<Contribuyente>result=query.getResultList();
+		Query query = entityManager.createNativeQuery(sb.toString(), Contribuyente.class);
+		List<Contribuyente>result = query.getResultList();
 		return result;
 	}
 
@@ -35,7 +37,7 @@ public class ContribuyenteDAOlmpl implements ContribuyenteDAO {
 	@Override
 	public void save(Contribuyente contribuyente) throws DataAccessException {
 		try {
-			if(contribuyente.getCodigoContribuyente() == null) {
+			if(contribuyente.getId_Contribuyente() == null) {
 				entityManager.persist(contribuyente);
 			}
 			else {

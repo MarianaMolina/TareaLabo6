@@ -71,9 +71,9 @@ public class MainController {
 		}
 		else {
 			contribuyenteService.save(contribuyente);
-			List<Contribuyente> contribu = null;
+			List<Contribuyente> contribuyentes = null;
 			try {
-				contribu= contribuyenteService.findAll();
+				contribuyentes = contribuyenteService.findAll();
 			}
 			catch(Exception e) {
 				e.printStackTrace();

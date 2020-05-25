@@ -6,7 +6,7 @@
 </head>
 <body>
 	
-	<label>Listado contribuyentes </label></label>
+	<label>Listado contribuyentes </label>
 	
 	<table>
 		<thead>
@@ -16,19 +16,19 @@
 				<th>apellido</th>
 				<th>nit</th>
 				<th>fecha ingreso</th>
-				<th>importancia</th>
 			</tr>
 		</thead>
+		
 		<tbody>
-				<tr th:each="c ">
-					<th th:text="${contri.codigoContribuyente}"/>
-					<th th:text="${contri.nombre}"/>
-					<th th:text="${contri.apellido}"/>
-					<th th:text="${contri.nit}"/>
-					<th th:text="${contri.fecha}"/>
-					<th th:text="${contri.importancia}"/>
-				</tr>
+			<tr th:each="c, row:${contribuyente}">
+				<td th:text="${c.id_estudiante}"/>
+				<td th:text="${c.nombre}"/>
+				<td th:text="${c.apellido}"/>
+				<td th:text="${c.nit}"/>
+				<td th:text="${c.fecha_ingrso}"/>
+			</tr>
 		</tbody>
+			
 	</table>
 	
 	<br>

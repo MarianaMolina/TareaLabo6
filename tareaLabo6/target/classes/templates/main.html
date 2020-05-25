@@ -7,26 +7,13 @@
 <body>
 
 	<label> Importancia </label>
-	
-	<table>
-		<thead>
-			<th>id</th>
-			<th>Importancia</th>
-		</thead>
-		
-		<th:block th:each="importancia, row:${importancias}">
-			<tr>
-				<th th:text="${importancia.id_importancia}"/>
-				<th th:text="${importancia.marca}"/>
-			</tr>
-		</th:block>
-	</table>
+
 	
 	<br>
 	
 	<label>INGRESAR CONTRIBUYENTE</label>
 	
-	<form action="#" th:action="@{/save}" th:object="${Contribuyente}" method="post">
+	<form action="#" th:action="@{/save}" th:object="${contribuyente}" method="post">
 		<div>
 			<label for="nombre"><font color="#000000" face ="Arial" >Nombre: </font>  </label>
 			<input type="text" th:field="*{nombre}" id="nombre" required >
