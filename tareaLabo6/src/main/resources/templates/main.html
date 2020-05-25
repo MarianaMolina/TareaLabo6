@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>INICIO</title>
+</head>
+<body>
+
+	<label> Importancia </label>
+	
+	<table>
+		<thead>
+			<th>id</th>
+			<th>Importancia</th>
+		</thead>
+		
+		<th:block th:each="importancia, row:${importancias}">
+			<tr>
+				<th th:text="${importancia.id_importancia}"/>
+				<th th:text="${importancia.marca}"/>
+			</tr>
+		</th:block>
+	</table>
+	
+	<br>
+	
+	<label>INGRESAR CONTRIBUYENTE</label>
+	
+	<form action="#" th:action="@{/save}" th:object="${Contribuyente}" method="post">
+		<div>
+			<label for="nombre"><font color="#000000" face ="Arial" >Nombre: </font>  </label>
+			<input type="text" th:field="*{nombre}" id="nombre" required >
+			<span th:errors ="*{nombre}" style="color:#FF0000"></span>
+		</div>
+		
+		<br>
+		
+		<div>
+			<label for="apellido"> <font color="#000000" face ="Arial"> Apellido: </font>  </label>
+			<input type="text" th:field="*{apellido}" id="apellido" required >
+			<span th:errors ="*{apellido}" style="color:#FF0000"></span>
+		</div>
+		
+		<br>
+		
+		<div>
+			<label for="nit"> <font color="#000000" face ="Arial"> NIT: </font>  </label>
+			<input type="number" th:field="*{nit}" id="nit" required>
+			<span th:errors ="*{nit}" style="color:#FF0000"></span>
+		</div>
+		
+		<br>
+		
+		<input type="submit" value="Guardar">  
+	</form>
+	
+	<br>
+	
+	<form th:action="@{/listado}" method="post">
+		<input type="submit" value="Ver Contribuyentes">
+	</form>
+
+
+</body>
+</html>
